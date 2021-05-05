@@ -4,14 +4,10 @@ import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import routes from './api/routes';
+import logger from './api/middlewares/logger.middleware';
 
 const app = express();
 const port = 3000;
-
-const test = (req: any, res: any, next: Function) => {
-  console.log('hello!');
-  next();
-}
 
 // compresses all the responses
 app.use(compression());
@@ -26,10 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // enable all CORS request 
 app.use(cors());
 
-
-app.get('/api/', test, (req,res, next) => {
-  next()
-})
+// add logger middleware
+app.use(logger);
 
 app.use('/api/', routes);
 
