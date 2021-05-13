@@ -5,9 +5,15 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import routes from './api/routes';
 import logger from './api/middlewares/logger.middleware';
+import { generateToken } from './api/utils/jwt.utils';
 
 const app = express();
 const port = 3000;
+
+// Only generate a token for lower level environments
+if (process.env.NODE_ENV !== 'production') {
+  console.log('JWT', generateToken());
+}
 
 // compresses all the responses
 app.use(compression());
