@@ -3,9 +3,12 @@ import compression from 'compression';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import routes from './api/routes';
-import logger from './api/middlewares/logger.middleware';
 import { generateToken } from './api/utils/jwt.utils';
+
+import routes from './api/routes';
+
+import logger from './api/middlewares/logger.middleware';
+import errorHandler from './api/middlewares/error-handler.middleware';
 
 const app = express();
 const port = 3000;
@@ -32,6 +35,9 @@ app.use(cors());
 app.use(logger);
 
 app.use('/api/', routes);
+
+// add custom error handler middleware as the last middleware
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

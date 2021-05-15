@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { CustomError } from './../models/custom-error.model';
 
 const TEAMS = [
   { id: 1, name: 'Real Madrid', league: 'La Liga' },
