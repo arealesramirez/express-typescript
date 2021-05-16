@@ -12,5 +12,5 @@ const TEAMS = [
 ];
 
 export const getTeams = (req: Request, res: Response) => {
-res.send(TEAMS);
+  res.send(TEAMS);
 };

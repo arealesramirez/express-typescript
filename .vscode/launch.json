@@ -1,0 +1,67 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Node: Launch Express.js + TypeScript",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      // run start script set in package.json
+      // it is like vs code running npm run start 
+      "runtimeArgs": [
+        "run-script",
+        "start" 
+      ],
+      "sourceMaps": true,
+      // VS Code default debug port is 9229. Feel free to change it you are 
+      // running mulitple applications in different VS Code windows
+      "port": 9229, 
+    },
+    {
+      "name": "Nodemon: Launch Express.js + TypeScript",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      // run start:watch script set in package.json
+      // it is like vs code running npm run start:watch 
+      "runtimeArgs": [
+        "run-script",
+        "start:watch" 
+      ],
+      "sourceMaps": true,
+      // VS Code default debug port is 9229. Feel free to change it you are 
+      // running mulitple applications in different VS Code windows
+      "port": 9229,
+    },
+    {
+      "name": "Node: Attach Express.js + TypeScript",
+      "type": "node",
+      "request": "attach",
+      // VS Code default debug port is 9229. Feel free to change it you are 
+      // running mulitple applications in different VS Code windows
+      "port": 9229,
+      "restart": true,
+      "protocol": "inspector"
+    },
+    {
+      "name": "Nodemon: Attach Express.js + TypeScript",
+      "type": "node",
+      "request": "attach",
+      // VS Code default debug port is 9229. Feel free to change it you are 
+      // running mulitple applications in different VS Code windows. If you 
+      // want to change the port, make sure to update the script, i.e.,
+      // "start:watch": "nodemon --inspect=12345 src/index.ts",
+      "port": 9229,
+      // If you make changes to your code and save changes, nodemon will 
+      // automatically restart your server. In a similar way, you can restart
+      // the debugger. If "restart" is set to false, then every time you save
+      // new changes to your code while running nodemon, you will need
+      // to re-run the debugger
+      "restart": true,
+      "protocol": "inspector"
+    }
+  ]
+}
