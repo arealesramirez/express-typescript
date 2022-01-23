@@ -7,6 +7,7 @@ import * as path from 'path';
 import routes from './api/routes';
 import logger from './api/middlewares/logger.middleware';
 import errorHandler from './api/middlewares/error-handler.middleware';
+import * as MySQLConnector from './api/utils/mysql.connector';
 
 const app = express();
 const port = 3000;
@@ -15,6 +16,9 @@ const port = 3000;
 if (process.env.NODE_ENV !== 'production') {
   console.log('JWT', generateToken());
 }
+
+// create database pool
+MySQLConnector.init();
 
 // serve static files
 app.use(express.static(path.join(__dirname, '../public')));
